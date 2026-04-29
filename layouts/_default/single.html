@@ -1,0 +1,140 @@
+{{ define "main" }}
+<style>
+  .post {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  .post__back {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+
+  .post__back:hover { color: var(--ink); }
+
+  .post__back::before {
+    content: '← ';
+  }
+
+  .post__label {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .post__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .post__date {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .post__cover {
+    width: 100%;
+    height: auto;
+    margin-bottom: 48px;
+    display: block;
+  }
+
+  /* Post body typography */
+  .post__body {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+
+  .post__body p {
+    margin-bottom: 1.4em;
+    font-weight: 300;
+  }
+
+  .post__body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    margin: 2.5em 0 0.8em;
+    color: var(--ink);
+  }
+
+  .post__body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    margin: 2em 0 0.6em;
+    color: var(--ink);
+  }
+
+  .post__body blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 24px;
+    margin: 2em 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--mid);
+  }
+
+  .post__body img {
+    width: 100%;
+    height: auto;
+    margin: 2em 0;
+    display: block;
+  }
+
+  .post__body a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post__body ul, .post__body ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.4em;
+  }
+
+  .post__body li {
+    margin-bottom: 0.4em;
+  }
+
+  @media (max-width: 600px) {
+    .post { padding: 48px 20px 80px; }
+  }
+</style>
+
+<article class="post">
+  <a class="post__back" href="/blog">Journal</a>
+  <p class="post__label">Journal</p>
+  <h1 class="post__title">{{ .Title }}</h1>
+  <p class="post__date">{{ .Date.Format "2 January 2006" }}</p>
+  {{ if .Params.cover }}
+    <img class="post__cover" src="{{ .Params.cover }}" alt="{{ .Title }}">
+  {{ end }}
+  <div class="post__body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

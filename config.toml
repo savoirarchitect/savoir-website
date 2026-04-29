@@ -1,0 +1,13 @@
+baseURL = "https://savoirarchitecture.co.uk/"
+languageCode = "en-gb"
+title = "Savoir Architecture"
+
+[params]
+  description = "Knowledge in Architecture"
+  email = "info@savoirarchitecture.co.uk"
+  tel = "07783 063 428"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

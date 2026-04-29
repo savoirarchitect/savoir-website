@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ if .IsHome }}Savoir Architecture{{ else }}{{ .Title }} — Savoir Architecture{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F0E8;
+      --warm-white: #FAF8F4;
+      --ink: #1A1814;
+      --mid: #6B6560;
+      --accent: #C8B99A;
+      --line: rgba(26,24,20,0.12);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 100;
+    }
+
+    .nav__brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.1rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav__links a:hover {
+      color: var(--ink);
+    }
+
+    /* Page content */
+    .page {
+      padding-top: 56px;
+      min-height: 100vh;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 40px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 80px;
+    }
+
+    .footer__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .nav__links { gap: 20px; }
+      .footer { flex-direction: column; gap: 16px; padding: 24px 20px; }
+      .footer__contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__brand" href="/">Savoir</a>
+    <ul class="nav__links">
+      <li><a href="/blog">Journal</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+    {{ block "main" . }}{{ end }}
+  </div>
+
+  <footer class="footer">
+    <span>Savoir Architecture<br>© {{ now.Year }}</span>
+    <div class="footer__contact">
+      <span>info@savoirarchitecture.co.uk</span>
+      <span>07747 465 927</span>
+    </div>
+  </footer>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
