@@ -1,6 +1,7 @@
 ---
 title: "Lime and Cement: A Straightforward Guide"
 date: 2026-05-04T20:30:00.000+01:00
+description: What you should use on your building and why.
 ---
 
 
