@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: savoirarchitect/savoir-website
+  base_url: https://cms-auth.savoirarchitect.workers.dev
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
