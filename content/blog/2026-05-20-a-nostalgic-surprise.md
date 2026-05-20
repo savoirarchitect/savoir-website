@@ -1,6 +1,7 @@
 ---
 title: A Nostalgic Surprise
 date: 2026-05-20T20:00:00.000+01:00
+description: One of my first domestic extensions
 cover: /images/uploads/re-wide-shot.jpeg
 ---
 That’s what I got when I opened my Facebook at the weekend to find an estate agent advert from Robert Ellis Estate Agents for one of the first projects I worked on at Allan Joyce Architects after completing my Part 2 qualification.
